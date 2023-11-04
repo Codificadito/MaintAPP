@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.R
@@ -150,7 +151,11 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
         viewHolder.itemImage.setImageResource(task.imageResource)
 
         val stateColorHex = getColorForState(task.urgency, viewHolder.itemView.context)
-        viewHolder.itemView.setBackgroundColor(stateColorHex)
+        //viewHolder.itemView.setBackgroundColor(stateColorHex)
+        val cardView = viewHolder.itemView.findViewById<CardView>(R.id.Backgroundcard)
+        //val cardView = findViewById<CardView>(R.id.cardViewTitleDescription)
+        //cardView.setBackgroundColor(stateColorHex)
+        cardView.setCardBackgroundColor(stateColorHex)
 
 
         val colorDecimal = getColorForState(task.urgency, viewHolder.itemView.context) // Obtén el color en formato decimal
@@ -159,12 +164,12 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
 
 
         viewHolder.itemView.setOnClickListener {
-            // Aquí puedes manejar el clic en el elemento, por ejemplo, mostrar detalles de la tarea
+
             val intent = Intent(viewHolder.itemView.context, TareaDetalleActivity::class.java)
             intent.putExtra("tituloTarea", task.title)
             intent.putExtra("descripcionTarea", task.details)
             intent.putExtra("colordetarea", colorHex)
-            // Agrega otros datos de la tarea que desees enviar
+
             viewHolder.itemView.context.startActivity(intent)
         }
     }

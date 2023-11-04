@@ -6,7 +6,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
     card_view:cardCornerRadius="20dp"
+    card_view:cardUseCompatPadding="true"
     card_view:cardElevation="3dp"
+    android:id="@+id/Backgroundcard"
     card_view:contentPadding="8dp" >
 
     <LinearLayout
@@ -14,7 +16,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:background="@color/cardview_shadow_end_color">
+    >
 
     <ImageView
         android:id="@+id/imageTaskId"

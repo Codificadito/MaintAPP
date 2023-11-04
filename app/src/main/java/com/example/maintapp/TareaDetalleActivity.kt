@@ -35,6 +35,7 @@ class TareaDetalleActivity : Activity() {
         } else {
             // Maneja el caso en el que no se encontró un color
             cardViewTitleDescription.setCardBackgroundColor(ContextCompat.getColor(this, R.color.color_predeterminado))
+            //cardViewTitleDescription.setBackgroundColor(ContextCompat.getColor(this, R.color.color_predeterminado))
         }
 
         // Llenar los campos con los datos de la tarea si están disponibles
