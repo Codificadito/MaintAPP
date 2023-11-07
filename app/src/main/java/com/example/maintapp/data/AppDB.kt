@@ -1,25 +1,22 @@
 package com.example.maintapp.data
 
-import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.maintapp.AppMantenimiento
-import com.example.maintapp.contants.Contants
 import com.example.maintapp.model.Task
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
+import com.example.maintapp.data.Constants
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
-abstract class UserDB : RoomDatabase() {
+@Database(entities = [Task::class], version = 2, exportSchema = false)
+abstract class TaskDB : RoomDatabase() {
 
-    abstract fun userDao(): UserDao
+    abstract fun userDao(): TaskDao
 
     companion object {
         @Volatile
-        private var INSTANCE: UserDB? = null
+        private var INSTANCE: TaskDB? = null
 
-        fun getDatabase(): UserDB {
+        fun getDatabase(): TaskDB {
             val tempInstance = INSTANCE
 
             if(tempInstance != null) {
@@ -29,7 +26,7 @@ abstract class UserDB : RoomDatabase() {
             synchronized(this) {
                 val instance = Room.databaseBuilder(
                     AppMantenimiento.instance.applicationContext,
-                    UserDB::class.java,
+                    TaskDB::class.java,
                     Constants.DB_NAME
                 )
                     .allowMainThreadQueries()

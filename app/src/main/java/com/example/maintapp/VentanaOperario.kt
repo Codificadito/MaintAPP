@@ -1,6 +1,5 @@
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.R
 import com.example.maintapp.TareaDetalleActivity
-import com.example.maintapp.Task
 
 class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
     private val taskList: List<Task> = getSampleTasks()
