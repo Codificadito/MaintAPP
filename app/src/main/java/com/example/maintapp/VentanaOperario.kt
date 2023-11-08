@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.R
 import com.example.maintapp.TareaDetalleActivity
+import com.example.maintapp.Task
 
 class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
     private val taskList: List<Task> = getSampleTasks()

@@ -26,6 +26,9 @@
             android:name=".TareaDetalleActivity"
             android:label="Tarea Detalle">
         </activity>
+        <activity
+            android:name=".AppMantenimiento">
+        </activity>
     </application>
 
 </manifest>
