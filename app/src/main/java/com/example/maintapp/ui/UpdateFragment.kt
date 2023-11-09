@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.maintapp.R
 import com.example.maintapp.databinding.FragmentUpdateBinding
@@ -33,6 +34,7 @@ class UpdateFragment : Fragment() {
             val address = binding.editAddress.text.toString()
 
             findNavController().navigate(R.id.action_updateFragment_to_tasksFragment)
+
         }
 
         return binding.root
