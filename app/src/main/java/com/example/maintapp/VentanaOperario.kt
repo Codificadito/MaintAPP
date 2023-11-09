@@ -137,6 +137,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
         return sampleTasks
     }
 
+
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.ventana_operario_0, viewGroup, false)
         return ViewHolder(v)
