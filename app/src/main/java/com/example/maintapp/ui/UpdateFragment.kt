@@ -18,7 +18,7 @@ class UpdateFragment {
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when(menuItem.itemId) {
             R.id.menu_delete -> {
-                deleteUser()
+                deleteTask()
                 true
             }
 
@@ -28,7 +28,7 @@ class UpdateFragment {
         }
     }
 
-    private fun deleteUser() {
+    private fun deleteTask
         val dialog = AlertDialog.Builder(requireContext())
 
         dialog.setTitle("¿Quiere Eliminar?")
@@ -40,7 +40,7 @@ class UpdateFragment {
 
         dialog.setPositiveButton("Si") {
             var userViewModel = null
-            userViewModel.deleteUser(user = user!!)
+            userViewModel.deleteTask(task = task!!)
         }
     }
 }
