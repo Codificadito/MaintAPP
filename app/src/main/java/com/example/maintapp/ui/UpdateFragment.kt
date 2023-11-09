@@ -5,10 +5,11 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
 import com.example.maintapp.R
 import com.google.firebase.firestore.auth.User
 
-class UpdateFragment {
+class UpdateFragment : Fragment() {
 
     private var user: User? = null
 
@@ -36,7 +37,7 @@ class UpdateFragment {
         dialog.setMessage("¿Está Seguro?")
 
         dialog.setNegativeButton("No") { _,_ ->
-            @return@setNegativeButton
+            return@setNegativeButton
         }
 
         dialog.setPositiveButton("Si") {

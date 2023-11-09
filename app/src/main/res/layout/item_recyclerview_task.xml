@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-    >
+        >
 
         <ImageView
             android:id="@+id/imageTaskId"
@@ -39,6 +39,14 @@
                 android:text="Título de la Tarjeta"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/taskTextViewId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Id"
+                android:textSize="16sp"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/addressTextView"

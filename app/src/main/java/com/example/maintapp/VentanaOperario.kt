@@ -25,6 +25,8 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
     }
 
     private fun getSampleTasks(): List<Task> {
+
+        val ids = arrayOf(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18)
         val titles = arrayOf(
             "Mantenimiento programado",
             "Incidencia en ascensor",
@@ -109,6 +111,25 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
             android.R.drawable.ic_notification_overlay
             )
 
+        val tasksStates = arrayOf("Mantenimiento",
+            "Pendiente",
+            "Pendiente",
+            "En Progreso",
+            "Terminada",
+            "Terminada",
+            "En Progreso",
+            "Terminada",
+            "En Progreso",
+            "Terminada",
+            "Terminada",
+            "En Progreso",
+            "Terminada",
+            "Mantenimiento",
+            "Terminada",
+            "Pendiente",
+            "Pendiente",
+            "Pendiente")
+
         val urgencies = arrayOf(
             "Mantenimiento",
             "Incidencia",
@@ -132,7 +153,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
 
         val sampleTasks = mutableListOf<Task>()
         for (i in titles.indices) {
-            sampleTasks.add(Task(titles[i], details[i], addresses[i], imageResources[i], urgencies[i]))
+            sampleTasks.add(Task(ids[i],titles[i], details[i], addresses[i], imageResources[i],tasksStates[i], urgencies[i]))
         }
         return sampleTasks
     }

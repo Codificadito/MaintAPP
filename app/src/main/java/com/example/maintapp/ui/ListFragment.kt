@@ -5,9 +5,10 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.fragment.app.Fragment
 import com.example.maintapp.R
 
-class ListFragment {
+class ListFragment: Fragment() {
 
     private fun deleteAll() {
         val dialog = AlertDialog.Builder(requireContext())

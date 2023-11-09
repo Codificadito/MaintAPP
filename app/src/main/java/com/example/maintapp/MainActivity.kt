@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         this.supportActionBar?.hide()
         setContentView(R.layout.ventana_operario)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclearViewTaskPend)
+        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTaskPend)
         val btnCrearr : Button = findViewById(R.id.btnCrearTareaa)
         val adapter = VentanaOperario()
 
