@@ -8,7 +8,7 @@
     card_view:cardCornerRadius="20dp"
     card_view:cardUseCompatPadding="true"
     card_view:cardElevation="3dp"
-    android:id="@+id/Backgroundcard"
+    android:id="@+id/layoutItemRecycler"
     card_view:contentPadding="8dp" >
 
     <LinearLayout

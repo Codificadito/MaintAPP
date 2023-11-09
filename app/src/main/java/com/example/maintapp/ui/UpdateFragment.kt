@@ -1,50 +1,41 @@
 package com.example.maintapp.ui
 
-import android.app.AlertDialog
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.core.content.ContentProviderCompat.requireContext
+import android.os.Bundle
 import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.maintapp.R
-import com.google.firebase.firestore.auth.User
+import com.example.maintapp.databinding.FragmentUpdateBinding
+import com.example.maintapp.model.Task
 
 class UpdateFragment : Fragment() {
 
-    private var user: User? = null
+    private lateinit var binding: FragmentUpdateBinding
+    private var task: Task? = null
 
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.delete_menu, menu)
-    }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentUpdateBinding.inflate(inflater, container, false)
 
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        return when(menuItem.itemId) {
-            R.id.menu_delete -> {
-                deleteTask()
-                true
-            }
+        //recuperamos los datos y casteamos como Task
+        task = arguments?.getSerializable("task") as Task
+        binding.editTitle.setText(task?.title)
+        binding.editDescription.setText(task!!.description)
+        binding.editAddress.setText(task!!.address)
 
-            else -> {
-                false
-            }
-        }
-    }
+        binding.btnUpdateTask.setOnClickListener {
+            val title = binding.editTitle.text.toString()
+            val description = binding.editDescription.text.toString()
+            val address = binding.editAddress.text.toString()
 
-    private fun deleteTask() {
-        val dialog = AlertDialog.Builder(requireContext())
-
-        dialog.setTitle("¿Quiere Eliminar?")
-        dialog.setMessage("¿Está Seguro?")
-
-        dialog.setNegativeButton("No") { _,_ ->
-            return@setNegativeButton
+            findNavController().navigate(R.id.action_updateFragment_to_tasksFragment)
         }
 
-        dialog.setPositiveButton("Si") {
-            userViewModel.deleteTask(task = task!!)
-        }
+        return binding.root
     }
+
 }
-
-// Abajo de userViewModel.deleteUser(user = user!!) hay que agregar lo siguente:
-// dialog.create().show()

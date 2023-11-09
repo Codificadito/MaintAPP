@@ -16,18 +16,19 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         this.supportActionBar?.hide()
-        setContentView(R.layout.ventana_operario)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTaskPend)
-        val btnCrearr : Button = findViewById(R.id.btnCrearTareaa)
-        val adapter = VentanaOperario()
+        setContentView(R.layout.activity_main)
 
-        val intent = Intent(this, CreateActivity::class.java )
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
-
-        btnCrearr.setOnClickListener{
-            startActivity(intent)
-        }
+//        val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTaskPend)
+//        val btnCrearr : Button = findViewById(R.id.btnCrearTareaa)
+//        val adapter = VentanaOperario()
+//
+//        val intent = Intent(this, CreateActivity::class.java )
+//        recyclerView.layoutManager = LinearLayoutManager(this)
+//        recyclerView.adapter = adapter
+//
+//        btnCrearr.setOnClickListener{
+//            startActivity(intent)
+//        }
     }
 }

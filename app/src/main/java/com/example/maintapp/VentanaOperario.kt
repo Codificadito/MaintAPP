@@ -10,13 +10,13 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.R
 import com.example.maintapp.TareaDetalleActivity
-import com.example.maintapp.Task
+import com.example.maintapp.model.Task
 
 class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
     private val taskList: List<Task> = getSampleTasks()
 
-    private fun getColorForState(urgency: String, context: Context): Int {
-        return when (urgency) {
+    private fun getColorForState(taskPriority: String, context: Context): Int {
+        return when (taskPriority) {
             "Mantenimiento" -> ContextCompat.getColor(context, R.color.color_mantenimiento)
             "Incidencia" -> ContextCompat.getColor(context, R.color.color_incidencia)
             "Urgencia" -> ContextCompat.getColor(context, R.color.color_urgencia)
@@ -130,7 +130,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
             "Pendiente",
             "Pendiente")
 
-        val urgencies = arrayOf(
+        val priorities = arrayOf(
             "Mantenimiento",
             "Incidencia",
             "Urgencia",
@@ -153,7 +153,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
 
         val sampleTasks = mutableListOf<Task>()
         for (i in titles.indices) {
-            sampleTasks.add(Task(ids[i],titles[i], details[i], addresses[i], imageResources[i],tasksStates[i], urgencies[i]))
+            sampleTasks.add(Task(ids[i],titles[i], details[i], addresses[i], tasksStates[i], priorities[i], imageResources[i]))
         }
         return sampleTasks
     }
@@ -167,11 +167,11 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val task = taskList[position]
         viewHolder.itemTitle.text = task.title
-        viewHolder.itemDetail.text = task.details
+        viewHolder.itemDetail.text = task.description
         viewHolder.itemAdress.text = task.address
         viewHolder.itemImage.setImageResource(task.imageResource)
 
-        val stateColorHex = getColorForState(task.urgency, viewHolder.itemView.context)
+        val stateColorHex = getColorForState(task.taskPriority, viewHolder.itemView.context)
         //viewHolder.itemView.setBackgroundColor(stateColorHex)
         val cardView = viewHolder.itemView.findViewById<CardView>(R.id.Backgroundcard)
         //val cardView = findViewById<CardView>(R.id.cardViewTitleDescription)
@@ -179,7 +179,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
         cardView.setCardBackgroundColor(stateColorHex)
 
 
-        val colorDecimal = getColorForState(task.urgency, viewHolder.itemView.context) // Obtén el color en formato decimal
+        val colorDecimal = getColorForState(task.taskPriority, viewHolder.itemView.context) // Obtén el color en formato decimal
         val colorHex = String.format("#%06X", 0xFFFFFF and colorDecimal) // Convierte a formato hexadecimal
 
 
@@ -188,7 +188,7 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
 
             val intent = Intent(viewHolder.itemView.context, TareaDetalleActivity::class.java)
             intent.putExtra("tituloTarea", task.title)
-            intent.putExtra("descripcionTarea", task.details)
+            intent.putExtra("descripcionTarea", task.description)
             intent.putExtra("colordetarea", colorHex)
 
             viewHolder.itemView.context.startActivity(intent)

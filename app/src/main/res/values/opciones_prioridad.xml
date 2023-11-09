@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="opciones_prioridad">
-        <item>Baja</item>
-        <item>Media</item>
-        <item>Alta</item>
+        <item>Mantenimiento</item>
+        <item>Incidencia</item>
+        <item>Urgencia</item>
     </string-array>
 </resources>

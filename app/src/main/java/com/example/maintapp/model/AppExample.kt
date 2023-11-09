@@ -2,7 +2,7 @@ package com.example.maintapp.model
 
 import java.io.Serializable
 
-data class TaskExample(
+data class TaskExampleData(
     val id:Int,
     val name: String,
     val description: String,

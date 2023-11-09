@@ -1,9 +1,13 @@
 package com.example.maintapp
 
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.databinding.ItemRecyclerviewTaskBinding
+import com.example.maintapp.model.Task
 
 class TaskAdapter(private val taskList: MutableList<Task>): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
@@ -14,7 +18,15 @@ class TaskAdapter(private val taskList: MutableList<Task>): RecyclerView.Adapter
                 taskTextViewId.text = task.id.toString()
                 titleTextView.text = task.title
                 addressTextView.text = task.address
-                descriptionTextView.text = task.details
+                descriptionTextView.text = task.description
+
+                root.setOnClickListener {
+                    Log.d("taskAdapter","la tarea es: $task" ) //log para ver la task a editar
+                    val bundle = Bundle()
+                    bundle.putSerializable("task", task)
+                    itemView.findNavController().navigate(R.id.action_tasksFragment_to_updateFragment, bundle)
+                }
+
             }
         }
     }
