@@ -6,6 +6,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.maintapp.R
+import com.google.firebase.firestore.auth.User
 
 class UpdateFragment {
 

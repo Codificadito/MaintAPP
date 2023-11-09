@@ -63,7 +63,7 @@
     </Spinner>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnCreate"
+        android:id="@+id/btnCreates"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -4,8 +4,8 @@ import android.app.Activity
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 
@@ -14,6 +14,44 @@ class TareaDetalleActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ventana_operario_accion)
+
+        /// Obtén una referencia al Button desde el diseño
+        val customSpinnerButton = findViewById<Button>(R.id.completeButton)
+
+        customSpinnerButton.setOnClickListener {
+            val opciones = arrayOf("Completada", "En progreso", "No completada")
+
+            val popupMenu = PopupMenu(this, customSpinnerButton)
+            for (opcion in opciones) {
+                popupMenu.menu.add(opcion)
+            }
+
+            popupMenu.setOnMenuItemClickListener { item ->
+                val opcionSeleccionada = item.title.toString()
+
+                // Puedes realizar acciones en función de la opción seleccionada aquí
+                when (opcionSeleccionada) {
+                    "Completada" -> {
+                        // Realiza la acción correspondiente cuando se selecciona "Completada"
+                        // Aquí puedes agregar tu lógica
+                    }
+                    "En progreso" -> {
+                        // Realiza la acción correspondiente cuando se selecciona "En progreso"
+                        // Aquí puedes agregar tu lógica
+                    }
+                    "No completada" -> {
+                        // Realiza la acción correspondiente cuando se selecciona "No completada"
+                        // Aquí puedes agregar tu lógica
+                    }
+                }
+
+                customSpinnerButton.text = opcionSeleccionada
+                true
+            }
+
+            popupMenu.show()
+        }
+
 
         // Obtener vistas
         val titleTextDetail = findViewById<TextView>(R.id.titleTextDetail)
@@ -35,7 +73,6 @@ class TareaDetalleActivity : Activity() {
         } else {
             // Maneja el caso en el que no se encontró un color
             cardViewTitleDescription.setCardBackgroundColor(ContextCompat.getColor(this, R.color.color_predeterminado))
-            //cardViewTitleDescription.setBackgroundColor(ContextCompat.getColor(this, R.color.color_predeterminado))
         }
 
         // Llenar los campos con los datos de la tarea si están disponibles

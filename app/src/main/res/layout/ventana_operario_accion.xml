@@ -76,7 +76,19 @@
         android:layout_marginBottom="32dp"
         android:text="Marcar como completada"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        style="?android:attr/spinnerStyle"
+        android:shadowColor="@color/black"
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:gravity="start|center_vertical"
+
+        android:drawablePadding="8dp"
+    />
+
+
+
 
     <Button
         android:id="@+id/backButton"

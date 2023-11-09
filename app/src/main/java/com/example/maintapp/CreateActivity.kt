@@ -1,13 +1,13 @@
 package com.example.maintapp
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 
-class CreateActivity :AppCompatActivity() {
+class CreateActivity :Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.supportActionBar?.hide()
         setContentView(R.layout.create_screen)
 
     }
