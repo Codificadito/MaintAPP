@@ -28,7 +28,7 @@ class UpdateFragment {
         }
     }
 
-    private fun deleteTask
+    private fun deleteTask() {
         val dialog = AlertDialog.Builder(requireContext())
 
         dialog.setTitle("¿Quiere Eliminar?")
@@ -39,11 +39,10 @@ class UpdateFragment {
         }
 
         dialog.setPositiveButton("Si") {
-            var userViewModel = null
             userViewModel.deleteTask(task = task!!)
         }
     }
 }
 
 // Abajo de userViewModel.deleteUser(user = user!!) hay que agregar lo siguente:
-// dialog.create.show()
+// dialog.create().show()
