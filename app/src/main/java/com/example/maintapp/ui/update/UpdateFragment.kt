@@ -34,7 +34,7 @@ class UpdateFragment : Fragment(), MenuProvider {
 
 
         //recuperamos los datos y casteamos como Task
-        task = arguments?.getSerializable("task") as Task
+        task = arguments?.getSerializable("task") as Task //bundle
 
         binding.editTitle.setText(task?.title)
         binding.editDescription.setText(task!!.description)

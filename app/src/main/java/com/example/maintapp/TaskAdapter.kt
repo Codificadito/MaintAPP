@@ -36,7 +36,9 @@ class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
                     Log.d("taskAdapter","la tarea es: $task" ) //log para ver la task a editar
                     val bundle = Bundle()
                     bundle.putSerializable("task", task)
-                    itemView.findNavController().navigate(R.id.action_tasksFragment_to_updateFragment, bundle)
+                    //itemView.findNavController().navigate(R.id.action_tasksFragment_to_updateFragment, bundle)
+                    itemView.findNavController().navigate(R.id.action_tasksFragment_to_commentsFragment, bundle)
+
                 }
 
             }
