@@ -11,4 +11,5 @@
     <color name="color_incidencia">#ffb480</color>
     <color name="color_urgencia">#ff6961</color>
     <color name="color_predeterminado">#08cad1</color>
+    <color name="colorPrimary">#42d6a4</color>
 </resources>
