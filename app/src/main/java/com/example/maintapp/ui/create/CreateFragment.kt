@@ -1,4 +1,4 @@
-package com.example.maintapp.ui
+package com.example.maintapp.ui.create
 
 import android.os.Bundle
 import android.util.Log
@@ -58,6 +58,8 @@ class CreateFragment : Fragment() {
         }
 
         binding.btnCreateTask.setOnClickListener{
+
+            //Obtengo los datos de la ui
             val title = binding.editTitle.text.toString()
             val description = binding.editDescription.text.toString()
             val address = binding.editAddress.text.toString()

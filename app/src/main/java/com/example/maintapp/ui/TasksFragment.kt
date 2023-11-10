@@ -51,8 +51,8 @@ class TasksFragment : Fragment(), MenuProvider {
         }
 
         //observador del adapter
-        taskViewModel.readAllData.observe(viewLifecycleOwner) {
-            taskList -> adapter.setTasks(tasks = taskList)
+        taskViewModel.readAllData.observe(viewLifecycleOwner) { taskList ->
+            adapter.setTasks(tasks = taskList)
         }
 
         return binding.root

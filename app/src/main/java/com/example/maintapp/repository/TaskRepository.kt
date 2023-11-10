@@ -10,17 +10,17 @@ class TaskRepository {
     private val taskDao = TaskDB.getDatabase().taskDao()
     val readAllData:LiveData<List<Task>> = taskDao.readAllData()
 
-    suspend fun insertTask(task: Task) {
+    fun insertTask(task: Task) {
         taskDao.insert(task = task )
     }
     suspend fun updateTask(task: Task) {
         taskDao.update(task = task)
     }
 
-//    suspend fun deleteTask(task: Task) {
-//        taskDao.deleteTask(task = task)
-//    }
-//    suspend fun deleteAllTasks() {
-//        taskDao.deleteAll()
-//    }
+    suspend fun deleteTask(task: Task) {
+        taskDao.deleteTask(task = task)
+    }
+    suspend fun deleteAllTasks() {
+        taskDao.deleteAll()
+    }
 }

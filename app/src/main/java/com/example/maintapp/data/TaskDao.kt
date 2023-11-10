@@ -16,5 +16,11 @@ interface TaskDao {
     fun readAllData(): LiveData<List<Task>>
 
     @Update
-    fun update(task: Task)
+    suspend fun update(task: Task)
+
+    @Delete
+    suspend fun deleteTask(task: Task)
+
+    @Query("DELETE FROM task_table")
+    suspend fun deleteAll()
 }

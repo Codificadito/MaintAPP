@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/createFragment"
-        android:name="com.example.maintapp.ui.CreateFragment"
+        android:name="com.example.maintapp.ui.create.CreateFragment"
         android:label="fragment_create"
         tools:layout="@layout/fragment_create" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
-        android:name="com.example.maintapp.ui.UpdateFragment"
+        android:name="com.example.maintapp.ui.update.UpdateFragment"
         android:label="fragment_update"
         tools:layout="@layout/fragment_update" >
         <action

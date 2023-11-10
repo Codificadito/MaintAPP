@@ -23,21 +23,16 @@ class TaskViewModel() : ViewModel() {
         }
     }
 
-    fun deleteAllTasks() {
-        TODO("Not yet implemented")
-    }
-
-    /*
-         fun deleteTask(task: Task) {
-             viewModelScope.launch {
-                 repository.deleteTask(task = task)
-             }
+     fun deleteTask(task: Task) {
+         viewModelScope.launch {
+             repository.deleteTask(task = task)
          }
+     }
 
 
-         fun deleteAllTasks() {
-             viewModelScope.launch {
-                 repository.deleteAll()
-             }
-         } */
+     fun deleteAllTasks() {
+         viewModelScope.launch {
+             repository.deleteAllTasks()
+         }
+     }
 }
