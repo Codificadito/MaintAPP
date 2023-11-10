@@ -6,14 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.maintapp.R
 import com.example.maintapp.databinding.FragmentUpdateBinding
 import com.example.maintapp.model.Task
+import com.example.maintapp.viewModel.TaskViewModel
 
 class UpdateFragment : Fragment() {
 
     private lateinit var binding: FragmentUpdateBinding
+    private val taskViewModel by viewModels<TaskViewModel>()
     private var task: Task? = null
 
     override fun onCreateView(
