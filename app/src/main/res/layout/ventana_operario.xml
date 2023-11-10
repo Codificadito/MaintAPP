@@ -20,29 +20,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintVertical_chainStyle="packed"
         android:layout_marginTop="16dp" />
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewTaskPend"
-        android:layout_width="433dp"
-        android:layout_height="560dp"
+        android:layout_width="match_parent"
+        android:layout_height="660dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnCrearTareaa"
-        android:layout_width="158dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="44dp"
-        android:text="Crear"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewTaskPend"
         app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
