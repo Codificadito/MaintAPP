@@ -80,7 +80,7 @@ class TasksFragment : Fragment(), MenuProvider {
 
     override fun onMenuItemSelected(menuItem : MenuItem) : Boolean {
         return when (menuItem.itemId) {
-            R.menu.delete_menu -> {
+            R.id.menu_delete -> {
                 deleteAll()
                 true
             }
