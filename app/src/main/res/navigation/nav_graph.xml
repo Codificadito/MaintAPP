@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_tasksFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
+        <action
+            android:id="@+id/action_tasksFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
     </fragment>
     <fragment
         android:id="@+id/createFragment"
@@ -32,6 +35,15 @@
         tools:layout="@layout/fragment_update" >
         <action
             android:id="@+id/action_updateFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.example.maintapp.ui.comment.CommentsFragment"
+        android:label="fragment_comments"
+        tools:layout="@layout/fragment_comments" >
+        <action
+            android:id="@+id/action_commentsFragment_to_tasksFragment"
             app:destination="@id/tasksFragment" />
     </fragment>
 </navigation>
