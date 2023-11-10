@@ -15,8 +15,6 @@ class MainActivity : AppCompatActivity() {
 
 
         super.onCreate(savedInstanceState)
-        this.supportActionBar?.hide()
-
         setContentView(R.layout.activity_main)
 /*
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewTaskPend)

@@ -86,8 +86,8 @@ class UpdateFragment : Fragment(), MenuProvider {
     private fun deleteTask() {
         val dialog = AlertDialog.Builder(requireContext())
 
-        dialog.setTitle("¿Quiere Eliminar?")
-        dialog.setMessage("¿Está Seguro que desea eliminar la tarea ${task!!.title}?")
+        dialog.setTitle("Eliminar tarea")
+        dialog.setMessage("¿Está Seguro que desea eliminar la tarea ${task!!.id} - ${task!!.title}?")
 
         dialog.setNegativeButton("No") { _,_ ->
             return@setNegativeButton
