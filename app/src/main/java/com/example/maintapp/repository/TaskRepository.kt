@@ -7,7 +7,7 @@ import com.example.maintapp.model.Task
 
 class TaskRepository {
 
-    private val taskDao = TaskDB.getDatabase().userDao()
+    private val taskDao = TaskDB.getDatabase().taskDao()
     val readAllData:LiveData<List<Task>> = taskDao.readAllData()
 
     suspend fun insertTask(task: Task) {

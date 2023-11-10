@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.databinding.ItemRecyclerviewTaskBinding
 import com.example.maintapp.model.Task
 
-class TaskAdapter(private var taskList: List<Task>): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+
+    private var taskList = emptyList<Task>()
 
     inner class TaskViewHolder(private val binding: ItemRecyclerviewTaskBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(task: Task){

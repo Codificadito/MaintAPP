@@ -4,14 +4,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.maintapp.AppMantenimiento
+import com.example.maintapp.contants.Constants
 import com.example.maintapp.model.Task
-import com.example.maintapp.data.Constants
 
-@Database(entities = [Task::class], version = 2, exportSchema = false)
+@Database(entities = [Task::class], version = 1, exportSchema = false)
 abstract class TaskDB : RoomDatabase() {
 
-    abstract fun userDao(): TaskDao
+    abstract fun taskDao(): TaskDao
 
+    //instanciamos la base de datos con el companion object - SINGLETON
     companion object {
         @Volatile
         private var INSTANCE: TaskDB? = null

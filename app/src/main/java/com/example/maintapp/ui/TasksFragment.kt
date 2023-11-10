@@ -21,8 +21,9 @@ import com.example.maintapp.TaskAdapter
 import com.example.maintapp.databinding.FragmentTasksBinding
 import com.example.maintapp.viewModel.TaskViewModel
 
-class TasksFragment : Fragment(),MenuProvider {
+class TasksFragment : Fragment(), MenuProvider {
     private lateinit var binding: FragmentTasksBinding
+
     private val taskViewModel by viewModels<TaskViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +31,14 @@ class TasksFragment : Fragment(),MenuProvider {
     ): View? {
         binding = FragmentTasksBinding.inflate(inflater,container, false)
 
-        //deberia ir vacio el task adapter
+        //tasks ejemplo
         val exampleTask1 = Task(1,"Limpieza", "descripcion limpieza", "Siempre viva 123", "Pendiente", "Mantenimiento",  com.google.android.material.R.drawable.ic_m3_chip_close)
         val exampleTask2 = Task(2,"Arreglo", "descripcion arreglo", "Wallaby 42, Sidney", "Pendiente", "Incidencia",  com.google.android.material.R.drawable.ic_clock_black_24dp)
 
-        val adapter = TaskAdapter(taskList = mutableListOf(exampleTask1, exampleTask2))
+        //deberia ir vacio el task adapter
+        //val adapter = TaskAdapter(taskList = mutableListOf(exampleTask1, exampleTask2))
+
+        val adapter = TaskAdapter()
         binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewTask.adapter = adapter
 
@@ -43,9 +47,10 @@ class TasksFragment : Fragment(),MenuProvider {
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
         binding.btnCrearTarea.setOnClickListener {
-            findNavController().navigate(com.example.maintapp.R.id.action_tasksFragment_to_createFragment)
+            findNavController().navigate(R.id.action_tasksFragment_to_createFragment)
         }
 
+        //observador del adapter
         taskViewModel.readAllData.observe(viewLifecycleOwner) {
             taskList -> adapter.setTasks(tasks = taskList)
         }

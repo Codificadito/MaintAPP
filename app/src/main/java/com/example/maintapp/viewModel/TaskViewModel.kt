@@ -12,7 +12,11 @@ class TaskViewModel() : ViewModel() {
 
     val readAllData: LiveData<List<Task>> = repository.readAllData
 
-
+    fun insertTask(task:Task) {
+        viewModelScope.launch {
+            repository.insertTask(task = task)
+        }
+    }
     fun updateTask(task: Task) {
         viewModelScope.launch {
             repository.updateTask(task = task)
@@ -22,24 +26,18 @@ class TaskViewModel() : ViewModel() {
     fun deleteAllTasks() {
         TODO("Not yet implemented")
     }
+
     /*
-    fun insertUser(task:Task) {
-         viewModelScope.launch {
-             repository.insertTask(task = task)
+         fun deleteTask(task: Task) {
+             viewModelScope.launch {
+                 repository.deleteTask(task = task)
+             }
          }
-     }
 
 
-     fun deleteTask(task: Task) {
-         viewModelScope.launch {
-             repository.deleteTask(task = task)
-         }
-     }
-
-
-     fun deleteAllTasks() {
-         viewModelScope.launch {
-             repository.deleteAll()
-         }
-     } */
+         fun deleteAllTasks() {
+             viewModelScope.launch {
+                 repository.deleteAll()
+             }
+         } */
 }

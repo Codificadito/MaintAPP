@@ -1,22 +1,27 @@
 package com.example.maintapp.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.maintapp.R
 import com.example.maintapp.model.Task
 import com.example.maintapp.databinding.FragmentCreateBinding
 import com.example.maintapp.enums.TaskPriority
 import com.example.maintapp.enums.TaskState
+import com.example.maintapp.viewModel.TaskViewModel
 
 class CreateFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateBinding
+    private val taskViewModel by viewModels<TaskViewModel>()
+
     var taskStateSelected: TaskState? = null
     var prioritySelected: TaskPriority? = null
     override fun onCreateView(
@@ -60,9 +65,18 @@ class CreateFragment : Fragment() {
             val taskPriority = prioritySelected.toString()
 
             //validaciones
-            if(title.isNotEmpty() && description.isNotEmpty() && address.isNotEmpty()){
-                val task = Task(0, title, description, address, taskState, taskPriority, 1)
+            if(title.isNotEmpty() && description.isNotEmpty() && address.isNotEmpty()) {
+
+                //creamos la nueva tarea
+                val task = Task(id = 0, title = title, description = description, address = address, taskState = taskState, taskPriority = taskPriority, 1)
+
+                //se lo pasamos al view model
+                taskViewModel.insertTask(task = task)
+                Log.d("CreateFragment", "tarea creada: $task")
+
+                //volvemos al listado
                 findNavController().navigate(R.id.action_createFragment_to_tasksFragment)
+
             } else {
                 Toast.makeText(requireContext(), "Complete todos los campos requeridos!", Toast.LENGTH_SHORT).show()
             }
