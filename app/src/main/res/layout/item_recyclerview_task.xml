@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="4dp"
     card_view:cardCornerRadius="20dp"
     card_view:cardUseCompatPadding="true"
     card_view:cardElevation="3dp"
-    android:id="@+id/layoutItemRecycler"
-    card_view:contentPadding="8dp" >
+    android:id="@+id/layoutItemRecycler">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
-        >
+        android:padding="10dp">
 
         <ImageView
             android:id="@+id/imageTaskId"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_launcher_background"
-            android:contentDescription="Imagen de Pedido de Mantenimiento" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:contentDescription="Imagen de Pedido de Mantenimiento"
+            android:src="@drawable/ic_launcher_background" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_marginStart="8dp">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/titleTextView"
@@ -40,21 +40,40 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/taskTextViewId"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/stateChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Id"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
+                android:text="Estado Tarea" />
 
-            <TextView
-                android:id="@+id/addressTextView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Dirección"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
+                android:orientation="horizontal"
+                android:padding="0dp">
+
+                <TextView
+                    android:id="@+id/taskTextViewId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="Id"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+
+                <TextView
+                    android:id="@+id/addressTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dirección"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/taskTextViewId" />
+
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/descriptionTextView"
@@ -63,5 +82,7 @@
                 android:text="Descripción de Mantenimiento"
                 android:textSize="14sp" />
         </LinearLayout>
+
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
