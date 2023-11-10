@@ -36,24 +36,24 @@ class CreateFragment : Fragment() {
 
         binding.spinnerEstado.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                taskStateSelected = taskStatesList.get(position)
+                taskStateSelected = taskStatesList[position]
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                taskStateSelected = taskStatesList.get(0)
+                taskStateSelected = taskStatesList[0]
             }
         }
 
         //seleccion de prioridad
-        val priorityList = TaskPriority.values()
+        val taskPriorityList = TaskPriority.values()
 
-        binding.spinnerEstado.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
+        binding.spinnerPrioridad.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
-                prioritySelected = priorityList.get(position)
+                prioritySelected = taskPriorityList[position]
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                prioritySelected = priorityList.get(0)
+                prioritySelected = taskPriorityList[0]
             }
         }
 

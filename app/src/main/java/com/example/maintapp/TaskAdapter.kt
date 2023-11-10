@@ -17,10 +17,12 @@ class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
         fun bind(task: Task){
             //se bindean las textviews con las propiedades del obj task recibido
             with(binding){
-                taskTextViewId.text = task.id.toString()
+                val id = task.id.toString()
+                taskTextViewId.text = "Id: $id -"
                 titleTextView.text = task.title
                 addressTextView.text = task.address
                 descriptionTextView.text = task.description
+                stateChip.text = task.taskState
 
                 root.setOnClickListener {
                     Log.d("taskAdapter","la tarea es: $task" ) //log para ver la task a editar
