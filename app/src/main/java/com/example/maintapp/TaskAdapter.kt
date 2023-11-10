@@ -1,12 +1,16 @@
 package com.example.maintapp
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.maintapp.databinding.ItemRecyclerviewTaskBinding
+import com.example.maintapp.enums.TaskPriority
 import com.example.maintapp.model.Task
 
 class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
@@ -23,6 +27,10 @@ class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
                 addressTextView.text = task.address
                 descriptionTextView.text = task.description
                 stateChip.text = task.taskState
+
+                val stateColorHex = getColorForState(task.taskPriority, itemView.context)
+                val cardView = itemView.findViewById<CardView>(R.id.layoutItemRecycler)
+                cardView.setCardBackgroundColor(stateColorHex)
 
                 root.setOnClickListener {
                     Log.d("taskAdapter","la tarea es: $task" ) //log para ver la task a editar
@@ -41,7 +49,7 @@ class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: TaskAdapter.TaskViewHolder, position: Int) {
-        val task = taskList.get(position)
+        val task = taskList[position]
         holder.bind(task = task)
     }
 
@@ -52,6 +60,15 @@ class TaskAdapter(): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
     fun setTasks(tasks: List<Task>) {
         taskList = tasks
         notifyDataSetChanged()
+    }
+
+    private fun getColorForState(taskPriority: String, context: Context): Int {
+        return when (taskPriority) {
+            TaskPriority.MANTENIMIENTO.toString() -> ContextCompat.getColor(context, R.color.color_mantenimiento)
+            TaskPriority.INCIDENCIA.toString() -> ContextCompat.getColor(context, R.color.color_incidencia)
+            TaskPriority.URGENCIA.toString() -> ContextCompat.getColor(context, R.color.color_urgencia)
+            else -> ContextCompat.getColor(context, R.color.color_predeterminado)
+        }
     }
 
 }
