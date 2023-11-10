@@ -18,24 +18,28 @@ class TaskViewModel() : ViewModel() {
             repository.updateTask(task = task)
         }
     }
-   /*
-   fun insertUser(task:Task) {
-        viewModelScope.launch {
-            repository.insertTask(task = task)
-        }
-    }
-
-
-    fun deleteTask(task: Task) {
-        viewModelScope.launch {
-            repository.deleteTask(task = task)
-        }
-    }
-
 
     fun deleteAllTasks() {
-        viewModelScope.launch {
-            repository.deleteAll()
-        }
-    } */
+        TODO("Not yet implemented")
+    }
+    /*
+    fun insertUser(task:Task) {
+         viewModelScope.launch {
+             repository.insertTask(task = task)
+         }
+     }
+
+
+     fun deleteTask(task: Task) {
+         viewModelScope.launch {
+             repository.deleteTask(task = task)
+         }
+     }
+
+
+     fun deleteAllTasks() {
+         viewModelScope.launch {
+             repository.deleteAll()
+         }
+     } */
 }
