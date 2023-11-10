@@ -1,4 +1,4 @@
-import android.content.Context
+/*import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -205,4 +205,4 @@ class VentanaOperario : RecyclerView.Adapter<VentanaOperario.ViewHolder>() {
         var itemAdress: TextView = itemView.findViewById(R.id.addressTextView)
         var itemDetail: TextView = itemView.findViewById(R.id.descriptionTextView)
     }
-}
+}*/

@@ -23,15 +23,19 @@ import com.example.maintapp.viewModel.TaskViewModel
 
 class TasksFragment : Fragment(),MenuProvider {
     private lateinit var binding: FragmentTasksBinding
+
     private val taskViewModel by viewModels<TaskViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentTasksBinding.inflate(inflater,container, false)
-        val exampleTask1 = Task(1,"Limpieza", "descripcion limpieza", "Siempre viva 123", "Pendiente", "Mantenimiento",  com.google.android.material.R.drawable.ic_m3_chip_close)
+        /*val exampleTask1 = Task(1,"Limpieza", "descripcion limpieza", "Siempre viva 123", "Pendiente", "Mantenimiento",  com.google.android.material.R.drawable.ic_m3_chip_close)
         val exampleTask2 = Task(2,"Arreglo", "descripcion arreglo", "Wallaby 42, Sidney", "Pendiente", "Incidencia",  com.google.android.material.R.drawable.ic_clock_black_24dp)
         val adapter = TaskAdapter(taskList = mutableListOf(exampleTask1, exampleTask2))
+        */
+
+        val adapter = TaskAdapter()
         binding.recyclerViewTask.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewTask.adapter = adapter
 
